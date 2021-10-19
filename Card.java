@@ -1,8 +1,8 @@
 public class Card{
-    String suite;
-    int value;
+    public String suite;
+    public char value;
 
-    public Card(String suite, String value){
+    public Card(String suite, char value){
         this.suite = suite;
         this.value = value;
     }
@@ -11,7 +11,12 @@ public class Card{
         return suite;
     }
 
-    public int getValue(){
+    public char getValue(){
         return value;
+    }
+
+    @Override
+    public String toString(){
+        return suite + Character.toString(value);
     }
 }
