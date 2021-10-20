@@ -13,6 +13,8 @@ class GameTester{
         testSamWins();
         testDealerWins();
         testDouble22();
+        testDoubleBlackJack();
+
         System.out.println(
         "\n####################\nPassed all the tests\n####################");
     }
@@ -52,7 +54,7 @@ class GameTester{
         if(!game.winner.name.equals("dealer")) throw new RuntimeException("Wrong winner");
         if(game.dealer.handValue != 19) throw new RuntimeException("Wrong handValue of dealer");
         if(game.player.handValue != 22) throw new RuntimeException("Wrong handValue of player");
-        if(!game.player.hand.get(0).suite.equals("C")) throw new RuntimeException("Wrong card on hand");
+        if(!game.player.hand.get(0).getSuite().equals("C")) throw new RuntimeException("Wrong card on hand");
     }
 
     public static void testDouble22(){
@@ -72,7 +74,27 @@ class GameTester{
         if(!game.winner.name.equals("dealer")) throw new RuntimeException("Wrong winner");
         if(game.dealer.handValue != 22) throw new RuntimeException("Wrong handValue of dealer");
         if(game.player.handValue != 22) throw new RuntimeException("Wrong handValue of player");
-        if(!game.player.hand.get(1).suite.equals("H")) throw new RuntimeException("Wrong card on hand");
+        if(!game.player.hand.get(1).getSuite().equals("H")) throw new RuntimeException("Wrong card on hand");
+    }
+
+
+    public static void testDoubleBlackJack(){
+        //Tests if dealer wins if they both get 22
+
+        //arrange
+        Player dealer = new Player("dealer");
+        Player sam = new Player("sam");
+        List<String> cards = Arrays.asList("CA", "DA", "HQ", "DK");
+        Deck deck = new Deck(cards);
+
+        //act
+        BlackJack game = new BlackJack(deck, sam, dealer);
+        game.playBlackJack();
+
+        //assert
+        if(!game.winner.name.equals("sam")) throw new RuntimeException("Wrong winner");
+        if(game.dealer.handValue != 21) throw new RuntimeException("Wrong handValue of dealer");
+        if(game.player.handValue != 21) throw new RuntimeException("Wrong handValue of player");
     }
 
 }
