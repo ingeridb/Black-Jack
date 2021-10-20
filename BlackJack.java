@@ -70,7 +70,6 @@ public class BlackJack{
     */
     private boolean playerContinue(Player player, Player dealer, Deck deck){
         while(!player.higherThan17 && !player.lostGame){
-            System.out.println("player trekker nytt kort");
             player.drawCard(deck);
         }
         if (player.blackJack){
