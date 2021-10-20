@@ -9,7 +9,7 @@ No prerequisites other than to have Java installed (My version: Java SE 16.0.2).
 Play Black Jack with two players; one player (i.e. sam) and one dealer.
 
 You can either specify a deck by providing a text file as a command line argument or you can get a new shuffled deck by not providing any arguments. 
-The text file should be in this format: _D3, H4, CQ_ etc.
+The text file should be in this format: _D3, H4, CQ, ... , H9_
 
 Please check out the file _teknisk test.pdf_ for more details regarding the rules of Black Jack. 
 
