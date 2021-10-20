@@ -90,7 +90,6 @@ public class BlackJack{
     */
     private void dealerContinue(Player player, Player dealer, Deck deck){
         while(dealer.handValue <= player.handValue && !dealer.lostGame){
-            System.out.println("dealer trekker nytt kort");
             dealer.drawCard(deck);
         }
         if (dealer.lostGame){
