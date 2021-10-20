@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.Stack;
 
+/**
+ * Player --- A player for Black Jack
+ * A player has a hand of cards, and can keep track of handvalue and
+ * possible Black Jack scores (over 17, 21, over 21).
+ * @author    Ingerid Bergesen
+ */
 public class Player{
 
     public String name;
@@ -14,6 +20,12 @@ public class Player{
         this.name = name;
     }
 
+    /**
+    * The player can draw a card from a Deck and add it to their hand.
+    * Updates the players handValue and scorestatuses.
+    * @param A Deck object
+    * @return No return value.
+    */
     public void drawCard(Deck deck){
         Card c = deck.cards.pop();
         hand.add(c);
@@ -21,17 +33,28 @@ public class Player{
         updateScoreStatus();
     }
 
+    /**
+    * Updates the hand value of the player
+    * @param A Card object
+    * @return No return value.
+    */
     private void updateHandValue(Card c){
-        if(c.value == 'A'){
+        if(c.getValue() == 'A'){
             handValue += 11;
-        } else if(c.value == 'Q' || c.value == 'K' || c.value == 'J'){
+        } else if(c.getValue() == 'Q' || c.getValue() == 'K' || c.getValue() == 'J'){
             handValue += 10;
         } else{
-            int newValue = Character.getNumericValue(c.value);
+            int newValue = Character.getNumericValue(c.getValue());
             handValue += newValue;
         }
     }
 
+    /**
+    * Updates the status of the player to check if the player has a score over
+    * 17, a score of 21 (blackjack) or a score over 21 (lost the game)
+    * @param No parameters
+    * @return No return value.
+    */
     private void updateScoreStatus(){
         if (handValue == 21){
             blackJack = true;

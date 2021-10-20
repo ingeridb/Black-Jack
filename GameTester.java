@@ -3,6 +3,10 @@ import java.util.Stack;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+/**
+ * GameTester --- A program to test different outcomes of a game of BlackJack
+ * @author    Ingerid Bergesen
+ */
 class GameTester{
 
     public static void main(String[]args){
@@ -33,6 +37,7 @@ class GameTester{
 
     public static void testDealerWins(){
         //Tests if Sam wins the game
+
         //arrange
         Player dealer = new Player("dealer");
         Player sam = new Player("sam");
@@ -52,6 +57,7 @@ class GameTester{
 
     public static void testDouble22(){
         //Tests if dealer wins if they both get 22
+
         //arrange
         Player dealer = new Player("dealer");
         Player sam = new Player("sam");

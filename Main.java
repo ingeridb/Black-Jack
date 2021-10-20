@@ -5,10 +5,24 @@ import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+/**
+ * Main --- main program to create a Black Jack game
+ * @author    Ingerid Bergesen
+ */
+
 public class Main{
 
+    /**
+    * Starts a game of Black Jack with two players (sam and dealer).
+    * Creates a deck of cards based on either a file from command line arguments,
+    * or creates a random shuffled deck.
+    * @param Optional: String filename
+    * @exception FileNotFoundException
+    * @return No return value
+    */
     public static void main(String[]args){
         List<String> cards = null;
+        //Deck if the user do not provide a file with cards:
         List<String> fullDeck = Arrays.asList(
         "S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "SJ", "SQ", "SK", "SA",
         "H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H10", "HJ", "HQ", "HK", "HA",
@@ -35,6 +49,12 @@ public class Main{
 
     }
 
+    /**
+    * Read from file and create a list of card suites and values
+    * @param String which is the name of a file
+    * @exception FileNotFoundException
+    * @return List of strings with the cards suites/values from file
+    */
     public static List<String> readFile(String filename)throws FileNotFoundException{
         File file = new File(filename);
         Scanner fileReader = new Scanner(file);
