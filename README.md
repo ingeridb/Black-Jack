@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-None prerequisites other than to have Java installed (My version: Java SE 16.0.2).
+No prerequisites other than to have Java installed (My version: Java SE 16.0.2).
 
 ### Functionality
 
